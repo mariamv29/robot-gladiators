@@ -26,16 +26,21 @@ if (promptFight === "" || promptFight === null) {
       playerInfo.playerMoney = playerInfo.money - 10;
       shop();
     }
+  }
 }
 
 
 ///fight function
 var fight = function (enemy) {
   // repeat and execute as long as the enemy-robot is alive 
-  while (playerInfo.health > 0 && enemy.health > 0) {
+while (playerInfo.health > 0 && enemy.health > 0) {
   fightOrSkip(); // <-- Replace code with this function call
   var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
-  }
+    }
+
+    // generate random damage value based on player's attack power
+    var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
+
     enemy.health = Math.max(0, enemy.health - damage);
     console.log(
       playerInfo.name +
@@ -56,8 +61,8 @@ var fight = function (enemy) {
 
       // leave while() loop since enemy is dead
       break;
-    }  else {
-      window.alert(playerInfo.name + " still has " + playerInfo.health + " health left.");
+    } else {
+      window.alert(enemy.name + " still has " + enemy.health + " health left.");
     }
 
     // remove players's health by subtracting the amount set in the enemy.attack variable
@@ -83,7 +88,6 @@ var fight = function (enemy) {
       window.alert(
         playerInfo.name + " still has " + playerInfo.health + " health left."
       );
-    }
   }
 };
 
